@@ -8,7 +8,7 @@ import { useContext } from 'react';
 export default function Navbar() {
     const {cartItems} = useContext(CartContext)
     return(
-    <nav className="w-full bg-gray-800 text-white p-4 flex justify-between items-center">
+    <nav className="w-full bg-gray-800 text-white p-4 flex justify-between items-center sticky top-0 z-10">
     <div className="font-bold text-lg">ShopWave</div>
     <div className="space-x-4">
       <Link to="/" className="hover:underline">Home</Link>

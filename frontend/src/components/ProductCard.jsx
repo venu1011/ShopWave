@@ -1,11 +1,15 @@
 import { Link } from "react-router-dom"
+import { useContext } from 'react';
+import { CartContext } from '../context/CartContext';
 export default function ProductCard({ product }){
+  const {addToCart} = useContext(CartContext);
 
   return (
-    <Link to={`/products/${product.id}`}>
+
 
 
     <div className="border rounded-lg p-4 hover:shadow-lg transition">
+      <Link to={`/products/${product.id}`}>
 
       <img
         src={product.image}
@@ -20,13 +24,13 @@ export default function ProductCard({ product }){
       <p className="text-lg font-bold mt-2">
         ${product.price}
       </p>
-
-      <button className="bg-black text-white w-full mt-4 py-2 rounded">
+      </Link>
+      <button className="bg-black text-white w-full mt-4 py-2 rounded" onClick={()=>addToCart(product)}>
         Add to Cart
       </button>
 
     </div>
-      </Link>
+
 
   )
 
