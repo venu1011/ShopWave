@@ -8,6 +8,7 @@ import Login from './pages/Login';
 import Register from './pages/Register';
 import Profile from './pages/Profile';
 import MainLayout from './layouts/MainLayout';
+import ProductCategory from './pages/ProductCategory';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
         <Route path="/profile" element={<Profile />} />
+        <Route path="/category/:category" element={<ProductCategory />} />
       </Routes>
     </MainLayout>
     </BrowserRouter>

@@ -9,6 +9,13 @@ export default function Home(){
         .then(data=>setProducts(data))
     },[])
     const featuredProducts = products.slice(0,6);
+
+    const category = [
+      "electronics",
+      "jewelery",
+      "men's colthing",
+      "women's colthing"
+    ]
   return (
 
     
@@ -17,7 +24,6 @@ export default function Home(){
 
       {/* Hero Section */}
       <section className="bg-gray-100 py-16">
-
         <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-10">
 
           <div>
@@ -52,22 +58,17 @@ export default function Home(){
         </h2>
 
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+        {category.map(cat=>(
+          <><Link key={cat} to={`/category/${cat}`} ><div className="bg-gray-100 p-6 text-center rounded">
+            {cat}
+          </div>
+          </Link></>
 
-            <div className="bg-gray-100 p-6 text-center rounded">
-            Electronics
-            </div>
+            
+        ))}
 
-            <div className="bg-gray-100 p-6 text-center rounded">
-            Fashion
-            </div>
 
-            <div className="bg-gray-100 p-6 text-center rounded">
-            Accessories
-            </div>
 
-            <div className="bg-gray-100 p-6 text-center rounded">
-            Home
-            </div>
 
         </div>
 
@@ -75,18 +76,16 @@ export default function Home(){
     {/* Featured Products Section */}
     <section className="py-12">
 
-    <h2 className="text-2xl font-bold mb-6">
+    <><h2 className="text-2xl font-bold mb-6">
         Featured Products
-    </h2>
+      </h2><div className="grid grid-cols-2 md:grid-cols-4 gap-6">
 
-    <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          {/* temporary products */}
+          {featuredProducts.map(p => (
+            <ProductCard key={p.id} product={p} />
+          ))}
 
-        {/* temporary products */}
-       {featuredProducts.map(p=>(
-        <ProductCard key={p.id} product={p} />
-       ))}
-
-    </div>
+        </div></>
 
     </section>
 
